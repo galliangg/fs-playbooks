@@ -1,0 +1,87 @@
+---
+- hosts: all
+#    This Order is Important!
+#- import_playbook: fs-sp-301.yml # Service Pack version 3.0.1
+#- import_playbook: fs-dnsclient-300.yml # DNS Client (3.0.0)
+#- import_playbook: fs-meta-214.yml # HPS Applications (2.1.4)
+#- import_playbook: fs-va-1071.yml # HPS Inspection Engine (10.7.1)
+#- import_playbook: fs-ms-17010.yml # HPS Vulnerability DB (17.0.10)
+#- import_playbook: fs-nic-123.yml # HPS NIC Vendor DB (1.2.3)
+#- import_playbook: fs-mac-701.yml # Macintosh/Linux Property Scanner (7.0.1)
+#- import_playbook: fs-linux-110.yml # Linux (1.1.0)
+  gather_facts: no
+  vars:
+    plugins:
+      - fpi_title: Service Pack version (3.0.1)
+        fpi_name: ForeScout-service_pack_for_ca_700-3.0.1-30010063.fpi
+        fpi_dir: sp
+        fpi_url: https://updates.forescout.com/support/files/plugins/service_pack_for_ca_700/3.0.1/3.0.1-30010063/ForeScout-service_pack_for_ca_700-3.0.1-30010063.fpi
+      - fpi_title: DNS Client (3.0.0)
+        fpi_name: ForeScout-dns_client-3.0.0-30000011.fpi
+        fpi_dir: dns_client
+        fpi_url: https://updates.forescout.com/support/files/plugins/dns/3.0.0/3.0.0-30000011/ForeScout-dns_client-3.0.0-30000011.fpi
+      - fpi_title: Install HPS Applications (2.1.4)
+        fpi_name: ForeScout-meta-2.1.4-21040037.fpi
+        fpi_dir: meta
+        fpi_url: https://updates.forescout.com/support/files/plugins/meta/2.1.4/2.1.4-21040037/ForeScout-meta-2.1.4-21040037.fpi
+      - fpi_title: HPS Inspection Engine (10.7.1)
+        fpi_name: ForeScout-va-10.7.1-107010169.fpi
+        fpi_dir: va
+        fpi_url: https://updates.forescout.com/support/files/plugins/hps/10.7.1/10.7.1-107010169/ForeScout-va-10.7.1-107010169.fpi
+      - fpi_title: HPS Vulnerability DB (17.0.10)
+        fpi_name: ForeScout-ms-17.0.10-170100003.fpi
+        fpi_dir: ms
+        fpi_url: https://updates.forescout.com/support/files/plugins/ms/17.0.10/17.0.10-170100003/ForeScout-ms-17.0.10-170100003.fpi
+      - fpi_title: HPS NIC Vendor DB (1.2.3)
+        fpi_name: ForeScout-nic-1.2.3-12030003.fpi
+        fpi_url: https://updates.forescout.com/support/files/plugins/nic/1.2.3/1.2.3-12030003/ForeScout-nic-1.2.3-12030003.fpi
+      - fpi_title: Macintosh/Linux Property Scanner (7.0.1)
+        fpi_name: ForeScout-mac-7.0.1-70010049.fpi
+        fpi_dir: mac
+        fpi_url: https://updates.forescout.com/support/files/plugins/mac/7.0.1/7.0.1-70010049/ForeScout-mac-7.0.1-70010049.fpi
+      - fpi_title: Linux (1.1.0)
+        fpi_name: ForeScout-linux-1.1.0-11000117.fpi
+        fpi_dir: linux
+        fpi_url: https://updates.forescout.com/support/files/plugins/linux/1.1.0/1.1.0-11000117/ForeScout-linux-1.1.0-11000117.fpi
+      - fpi_title: OS X (2.0.0)
+        fpi_name: ForeScout-osx-2.0.0-20000042.fpi
+        fpi_dir: osx
+        fpi_url: https://updates.forescout.com/support/files/plugins/osx/2.0.0/2.0.0-20000042/ForeScout-osx-2.0.0-20000042.fpi
+
+  tasks:
+    - name: create /tmp/update
+      file:
+        path: /tmp/update
+        state: directory
+
+
+    - name: Print Info
+      debug: msg=" {{ item.fpi_title }} will have directory {{ item.fpi_dir }}"
+        with_dict:
+          - "{{ plugins }}"
+
+    - name: create /tmp/update/fpi_dir
+      file:
+        path: /tmp/update/{{ item }}
+        state: directory
+        with_dict: "{{ plugins.fpi_dir }}"
+
+
+        #shell: brew cask install {{ item }}
+        #with_items: "{{ applications }}"
+
+  #  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+  #    unarchive:
+  #        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+  #        dest: /tmp/update/{{ fpi_dir }}
+
+  #  - name: Install {{ fpi_name }}
+  #    shell: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
+  #    notify:
+  #      - restart fstool service
+
+  #  handlers:
+  #    - name: restart fstool service
+  #      command: fstool service restart
+  #      ignore_errors: yes
+  #      failed_when: false

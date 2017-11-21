@@ -1,0 +1,7 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Install demo license
+    command: fstool set_license -demo

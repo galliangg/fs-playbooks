@@ -1,0 +1,41 @@
+---
+- hosts: all
+  gather_facts: no
+#    This Order is Important!
+# Installing updated default plugins
+- import_playbook: fs-sp-301.yml # Service Pack version 3.0.1
+- import_playbook: fs-dnsclient-300.yml # DNS Client (3.0.0)
+- import_playbook: fs-meta-214.yml # HPS Applications (2.1.4)
+- import_playbook: fs-va-1071.yml # HPS Inspection Engine (10.7.1)
+- import_playbook: fs-ms-17011.yml # HPS Vulnerability DB (17.0.11)
+- import_playbook: fs-nic-123.yml # HPS NIC Vendor DB (1.2.3)
+- import_playbook: fs-mac-701.yml # Macintosh/Linux Property Scanner (7.0.1)
+- import_playbook: fs-linux-110.yml # Linux (1.1.0)
+- import_playbook: fs-osx-200.yml # OS X (2.0.0)
+- import_playbook: fs-nbtscan-304.yml # NBT Scanner (3.0.4)
+- import_playbook: fs-profiles-202.yml # Device Profile Library (2.0.2)
+- import_playbook: fs-syslog-320.yml # Syslog (3.2.0)
+- import_playbook: fs-ipmi-114.yml # Hardware WatchDog (1.1.4)
+- import_playbook: fs-support-112.yml # Technical Support (1.1.2)
+- import_playbook: fs-sw-8111.yml # Switch (8.11.1)
+
+# New Plugins
+- import_playbook: fs-dhclass-206.yml # DHCP Classifier (2.0.6)
+- import_playbook: fs-goodies-223.yml # Advanced Tools (2.2.3)
+- import_playbook: fs-wireless-170.yml # Wireless (1.7.0)
+
+# Extra Plugins probably not needed
+- import_playbook: fs-spt-17011.yml # Security Policy Templates (17.0.11)
+# NetFlow (1.1.1)
+- import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
+- import_playbook: fs-hwi-102.yml # Hardware Inventory (1.0.2)
+# External Classifier (2.2.2)
+- import_playbook: fs-hijack_assist-115.yml # DNS Enforce (1.1.5)
+- import_playbook: fs-dot1x-420.yml # 802.1X (4.2.0)
+# CEF (2.6.1)
+
+# Install demo license
+- import_playbook: fs-demo-license.yml
+
+# Update to 64 bit
+#- import_playbook: fs-osup-122.yml # Operating System Update Pack version 1.2.2

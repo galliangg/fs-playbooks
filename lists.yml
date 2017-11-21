@@ -1,0 +1,50 @@
+---
+- hosts: localhost
+
+  tasks:
+#  - name: Copy pocupdates.zip to /tmp and unzip
+#    unarchive:
+#      src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/pocupdates.zip"
+#      dest: /tmp/
+
+  - name: Find ../../ForeScout/Software files ending with .fpi
+    find:
+      paths: ../../ForeScout/Software
+      patterns: "*.fpi"
+    register: find_result
+
+  - name: Show number matched
+    debug:
+      msg: "{{ find_result.matched }}"
+
+  - name: List Path
+    debug:
+      msg: "{{ find_result.files[4].path }}"
+
+  - name: List Path
+    debug:
+      msg: "{{ find_result.results|map(attribute='psth')|list }}"
+
+
+
+
+#      - name: Ansible find file examples
+#        find:
+#          paths: ../../ForeScout/Software
+#          patterns: "*.fpi"
+#        register: files_matched
+#
+#      - name:
+#        debug: matched
+#          msg: "{{ files_matched.matched }}"
+#
+#      - name: matched
+#        debug:
+#          msg: "{{ files_matched.files[0].path }}"
+#
+#
+              # \/ for debugging
+          #  - name: print find_result
+          #    debug:
+          #      #msg:
+          #      var: find_result.files
