@@ -8,7 +8,7 @@
 - import_playbook: fs-meta-214.yml # HPS Applications (2.1.4)
 - import_playbook: fs-nic-123.yml # HPS NIC Vendor DB (1.2.3)
 - import_playbook: fs-va-1071.yml # HPS Inspection Engine (10.7.1)
-- import_playbook: fs-ms-17011.yml # HPS Vulnerability DB (17.0.11)
+- import_playbook: fs-ms-17012.yml # Windows Vulnerability DB (17.0.12) was HPS Vulnerability DB
 - import_playbook: fs-mac-701.yml # Macintosh/Linux Property Scanner (7.0.1)
 - import_playbook: fs-linux-110.yml # Linux (1.1.0)
 - import_playbook: fs-osx-200.yml # OS X (2.0.0)
