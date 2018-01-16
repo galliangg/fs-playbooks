@@ -3,10 +3,10 @@
   gather_facts: no
 
   vars:
-    fpi_title: HPS NIC Vendor DB (1.2.4)
-    fpi_name: ForeScout-nic-1.2.4-12040002.fpi
-    fpi_dir: nic
-    fpi_url: https://updates.forescout.com/support/files/plugins/nic/1.2.4/1.2.4-12040002/ForeScout-nic-1.2.4-12040002.fpi
+    fpi_title: HPS Vulnerability DB (18.0.1)
+    fpi_name: ForeScout-ms-18.0.1-180010003.fpi
+    fpi_dir: ms
+    fpi_url: https://updates.forescout.com/support/files/plugins/ms/18.0.1/18.0.1-180010003/ForeScout-ms-18.0.1-180010003.fpi
 
   tasks:
 
