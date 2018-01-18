@@ -25,7 +25,7 @@
 - import_playbook: fs-wireless-170.yml # Wireless (1.7.0)
 
 # Extra Plugins probably not needed
-- import_playbook: fs-spt-17011.yml # Security Policy Templates (17.0.11)
+- import_playbook: fs-spt-17012.yml # Security Policy Templates (17.0.12)
 # NetFlow (1.1.1)
 - import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
 - import_playbook: fs-hwi-102.yml # Hardware Inventory (1.0.2)
