@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    update_name: update.zip
+    update_location: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/SC/"
+
+  tasks:
+
+  - name: Install MacOS SecureConnector
+    ping:
+
+  - name: create /tmp/macos-sc
+    file:
+      path: /tmp/macos-sc
+      state: directory
+
+  - name: Copy {{ update_name }} and unzip in /tmp/macos-sc
+    unarchive:
+        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/SC/{{ update_name }}"
+        dest: /tmp/macos-sc
+
+  - name: Install SecureConnector
+    become: yes
+    shell: /tmp/macos-sc/Update.sh -t daemon -v 1
