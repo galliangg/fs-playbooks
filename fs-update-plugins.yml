@@ -3,7 +3,6 @@
   gather_facts: no
 #    This Order is Important!
 # Installing updated default plugins
-#- import_playbook: fs-sp-301.yml # Service Pack version 3.0.1
 - import_playbook: fs-dnsclient-300.yml # DNS Client (3.0.0)
 - import_playbook: fs-meta-214.yml # HPS Applications (2.1.4)
 - import_playbook: fs-va-1071.yml # HPS Inspection Engine (10.7.1)
@@ -25,7 +24,7 @@
 - import_playbook: fs-wireless-170.yml # Wireless (1.7.0)
 
 # Extra Plugins probably not needed
-- import_playbook: fs-spt-17012.yml # Security Policy Templates (17.0.12)
+- import_playbook: fs-spt-18001.yml # Security Policy Templates (18.0.1)
 # NetFlow (1.1.1)
 - import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
 - import_playbook: fs-hwi-102.yml # Hardware Inventory (1.0.2)
@@ -35,7 +34,13 @@
 # CEF (2.6.1)
 
 # Install demo license
-- import_playbook: fs-demo-license.yml
+#- import_playbook: fs-demo-license.yml
 
 # Update to 64 bit
 #- import_playbook: fs-osup-122.yml # Operating System Update Pack version 1.2.2
+
+  handlers:
+    - name: restart fstool service
+      command: fstool service restart
+      ignore_errors: yes
+      failed_when: false

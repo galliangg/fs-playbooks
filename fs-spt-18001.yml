@@ -3,13 +3,13 @@
   gather_facts: no
 
   vars:
-    fpi_title: Switch (8.11.1)
-    fpi_name: ForeScout-sw-8.11.1-81101084.fpi
-    fpi_dir: sw
-    fpi_url: https://updates.forescout.com/support/files/plugins/sw/8.11.1/8.11.1-81101084/ForeScout-sw-8.11.1-81101084.fpi
-
+    fpi_title: Security Policy Templates (18.0.1)
+    fpi_name: ForeScout-spt-18.0.1-180010044.fpi
+    fpi_dir: spt
+    fpi_url: https://updates.forescout.com/support/files/plugins/spt/18.0.1/18.0.1-180010044/ForeScout-spt-18.0.1-180010044.fpi
   tasks:
-  - name: Install {{ fpi_title }} {{ fpi_name }}
+
+  - name: Install {{ fpi_title }} {{ fpi_name }} from {{ fpi_dir }}
     ping:
 
   - name: create /tmp/update

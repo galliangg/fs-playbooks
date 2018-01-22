@@ -35,8 +35,8 @@
     notify:
       - restart fstool service
 
-  handlers:
-    - name: restart fstool service
-      command: fstool service restart
-      ignore_errors: yes
-      failed_when: false
+#  handlers:
+#    - name: restart fstool service
+#      command: fstool service restart
+#      ignore_errors: yes
+#      failed_when: false
