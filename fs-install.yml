@@ -9,5 +9,11 @@
 # Install demo license
 - import_playbook: fs-demo-license.yml
 
-# Update to 64 bit
-- import_playbook: fs-osup-122.yml # Operating System Update Pack version 1.2.2
+# Update to 64 bit & Mitigate Spectre & Meltdown
+- import_playbook: fs-osup-1222.yml # Operating System Update Pack version 1.2.2.2
+
+  handlers:
+    - name: restart fstool service
+      command: fstool service restart
+      ignore_errors: yes
+      failed_when: false
