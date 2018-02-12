@@ -27,14 +27,10 @@
     unarchive:
         src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
         dest: /tmp/update/{{ fpi_dir }}
-
-  - name: Install {{ fpi_name }}
-    shell: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
     notify:
-      - restart fstool service
+      - install plugin
 
-#  handlers:
-#    - name: restart fstool service
-#      command: fstool service restart
-#      ignore_errors: yes
-#      failed_when: false
+  handlers:
+    - name: install plugin
+      command: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
+      

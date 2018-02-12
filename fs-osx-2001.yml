@@ -2,13 +2,15 @@
 - hosts: all
   gather_facts: no
 
-  vars:
-    fpi_title: DNS Enforce (1.1.5)
-    fpi_name: ForeScout-hijack_assist-1.1.5-11050005.fpi
-    fpi_dir: hijack_assist
-    fpi_url: https://updates.forescout.com/support/files/plugins/dns_enforce/1.1.5/1.1.5-11050005/ForeScout-hijack_assist-1.1.5-11050005.fpi
+# https://updates.forescout.com/support/files/plugins/linux/1.1.0/1.1.0-11000117/ForeScout-linux-1.1.0-11000117.fpi
 
+  vars:
+    fpi_title: OS X (2.0.0.1)
+    fpi_name: ForeScout-osx-2.0.0.1012-20001012.fpi
+    fpi_dir: osx
+    fpi_url: ForeScout-osx-2.0.0.1012-20001012.fpi
   tasks:
+
   - name: Install {{ fpi_title }} {{ fpi_name }}
     ping:
 
