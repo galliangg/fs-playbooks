@@ -3,10 +3,10 @@
   gather_facts: no
 
   vars:
-    fpi_title: 802.1x (4.2.0)
-    fpi_name: ForeScout-dot1x-4.2.0-42000551.fpi
+    fpi_title: 802.1x (4.2.0.1)
+    fpi_name: ForeScout-dot1x-4.2.0.1010-42001010.fpi
     fpi_dir: dot1x
-    fpi_url: https://updates.forescout.com/support/files/plugins/dot1x/4.2.0/4.2.0-42000551/ForeScout-dot1x-4.2.0-42000551.fpi
+    fpi_url: https://updates.forescout.com/support/files/plugins/dot1x/4.2.0.1010/4.2.0.1010-42001010/ForeScout-dot1x-4.2.0.1010-42001010.fpi
   tasks:
 
   - name: Install {{ fpi_title }} {{ fpi_name }} from {{ fpi_dir }}

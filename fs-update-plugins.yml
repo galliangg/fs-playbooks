@@ -31,7 +31,7 @@
 - import_playbook: fs-hwi-102.yml # Hardware Inventory (1.0.2)
 # External Classifier (2.2.2)
 - import_playbook: fs-hijack_assist-115.yml # DNS Enforce (1.1.5)
-- import_playbook: fs-dot1x-420.yml # 802.1X (4.2.0)
+- import_playbook: fs-dot1x-4201.yml # 802.1X (4.2.0)
 # CEF (2.6.1)
 
 # Install demo license
