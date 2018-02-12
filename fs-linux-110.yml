@@ -32,8 +32,8 @@
 
   - name: Install {{ fpi_name }}
     shell: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
-    notify:
-      - restart fstool service
+    #notify:
+    #  - restart fstool service
 
 #  handlers:
 #    - name: restart fstool service

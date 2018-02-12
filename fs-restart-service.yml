@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: restart fstool service
+      command: fstool service restart
+      

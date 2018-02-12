@@ -8,7 +8,6 @@
     fpi_dir: hijack_assist
     fpi_url: https://updates.forescout.com/support/files/plugins/dns_enforce/1.1.5/1.1.5-11050005/ForeScout-hijack_assist-1.1.5-11050005.fpi
 
-
   tasks:
   - name: Install {{ fpi_title }} {{ fpi_name }}
     ping:
@@ -30,8 +29,8 @@
 
   - name: Install {{ fpi_name }}
     shell: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
-    notify:
-      - restart fstool service
+    #notify:
+    #  - restart fstool service
 
 #  handlers:
 #    - name: restart fstool service
