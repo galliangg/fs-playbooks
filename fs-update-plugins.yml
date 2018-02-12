@@ -12,7 +12,7 @@
 - import_playbook: fs-linux-110.yml # Linux (1.1.0)
 - import_playbook: fs-osx-200.yml # OS X (2.0.0)
 - import_playbook: fs-nbtscan-304.yml # NBT Scanner (3.0.4)
-- import_playbook: fs-profiles-202.yml # Device Profile Library (2.0.2)
+- import_playbook: fs-profiles-203.yml # Device Profile Library (2.0.3)
 - import_playbook: fs-syslog-320.yml # Syslog (3.2.0)
 - import_playbook: fs-ipmi-114.yml # Hardware WatchDog (1.1.4)
 - import_playbook: fs-support-112.yml # Technical Support (1.1.2)
