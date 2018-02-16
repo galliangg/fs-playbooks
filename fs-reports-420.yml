@@ -1,0 +1,34 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    fpi_title: Reports (4.2.0)
+    fpi_name: ForeScout-webreports-4.2.0-42000003.fpi
+    fpi_dir: webreports
+    fpi_url: https://updates.forescout.com/support/files/plugins/webreports/4.2.0/4.2.0-42000003/ForeScout-webreports-4.2.0-42000003.fpi
+
+  tasks:
+  - name: Install {{ fpi_title }} {{ fpi_name }}
+    ping:
+
+  - name: create /tmp/update
+    file:
+      path: /tmp/update
+      state: directory
+
+  - name: create /tmp/update/{{ fpi_dir }} for {{ fpi_name }}
+    file:
+      path: /tmp/update/{{ fpi_dir }}
+      state: directory
+
+  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+    unarchive:
+        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+        dest: /tmp/update/{{ fpi_dir }}
+    notify:
+      - install plugin
+
+  handlers:
+    - name: install plugin
+      command: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
