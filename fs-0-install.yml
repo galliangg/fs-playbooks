@@ -10,6 +10,6 @@
 - import_playbook: fs-demo-license.yml
 
 # Update to 64 bit & Mitigate Spectre & Meltdown
-- import_playbook: fs-osup-1222.yml # Operating System Update Pack version 1.2.2.2
+- import_playbook: fs-osup-1222014.yml # Operating System Update Pack version 1.2.2.2014
 
 - import_playbook: fs-restart-service.yml # Restart the services after installation
