@@ -3,7 +3,7 @@
   gather_facts: no
 #    This Order is Important!
 # Installing updated default plugins
-- import_playbook: fs-sp-3011.yml # Service Pack version 3.0.1.1001
+- import_playbook: fs-sp-3013.yml # Service Pack version 3.0.1.3013
 - import_playbook: fs-0-update-plugins.yml
 
 # Install demo license

@@ -1,0 +1,35 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    fpi_title: Service Pack version (3.0.1.3013)
+    fpi_name: ForeScout-service_pack_for_ca_700-3.0.1.3013-30013013.fpi
+    fpi_dir: sp
+    fpi_url: https://forescout.my.salesforce.com/sfc/p/i0000000XnVY/a/0H0000008XPq/tnBMfxK.4ohnmqnEk7ugxpHtT0.nufbLdaed.eIA2jo
+
+  tasks:
+
+  - name: Install {{ fpi_title }} {{ fpi_name }}
+    ping:
+
+  - name: create /tmp/update
+    file:
+      path: /tmp/update
+      state: directory
+
+  - name: create /tmp/update/{{ fpi_dir }} for {{ fpi_name }}
+    file:
+      path: /tmp/update/{{ fpi_dir }}
+      state: directory
+
+  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+    unarchive:
+        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+        dest: /tmp/update/{{ fpi_dir }}
+    notify:
+      - install plugin
+
+  handlers:
+    - name: install plugin
+      command: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
