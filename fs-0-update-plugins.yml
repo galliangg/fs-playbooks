@@ -34,10 +34,10 @@
 - import_playbook: fs-dot1x-4201.yml # 802.1X (4.2.0)
 # CEF (2.6.1)
 
+# Update to 64 bit & Mitigate Spectre & Meltdown
+#- import_playbook: fs-osup-1222.yml # Operating System Update Pack version 1.2.2.2
+
 # Install demo license
 #- import_playbook: fs-demo-license.yml
-
-# Update to 64 bit & Mitigate Spectre & Meltdown
-- import_playbook: fs-osup-1222.yml # Operating System Update Pack version 1.2.2.2
 
 - import_playbook: fs-restart-service.yml # Restart the services after installation
