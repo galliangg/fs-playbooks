@@ -19,7 +19,7 @@
 - import_playbook: fs-support-112.yml # Technical Support (1.1.2)
 - import_playbook: fs-sw-8111.yml # Switch (8.11.1)
 - import_playbook: fs-cef-261.yml # CEF (2.6.1)
-- import_playbook: fs-reports-420.yml # Reports (4.2.0)
+#- import_playbook: fs-reports-420.yml # Reports (4.2.0) #Won't install over SP3
 
 # New Plugins
 - import_playbook: fs-dhclass-206.yml # DHCP Classifier (2.0.6)

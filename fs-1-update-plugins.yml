@@ -24,7 +24,7 @@
 - import_playbook: fs-goodies-223.yml # Advanced Tools (2.2.3)
 #- import_playbook: fs-wireless-170.yml # Wireless (1.7.0)
 - import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
-#- import_playbook: fs-reports-420.yml # Reports (4.2.0)
+#- import_playbook: fs-reports-420.yml # Reports (4.2.0) #Won't install over SP3
 
 # New Plugins
 - import_playbook: fs-spt-1802.yml # Security Policy Templates (18.0.2)
