@@ -25,19 +25,19 @@
 #- import_playbook: fs-wireless-170.yml # Wireless (1.7.0)
 - import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
 #- import_playbook: fs-reports-420.yml # Reports (4.2.0)
-#- import_playbook: fs-vmware-200.yml # VMware vSphere (2.0.0)
 
 # New Plugins
 - import_playbook: fs-spt-1802.yml # Security Policy Templates (18.0.2)
 
 # Extra Plugins probably not needed
+#- import_playbook: fs-vmware-200.yml # VMware vSphere (2.0.0)
 #- import_playbook: fs-atc-201.yml # IOC Scanner (2.0.1)
-# NetFlow (1.1.1)
 #- import_playbook: fs-hwi-102.yml # Hardware Inventory (1.0.2)
-# External Classifier (2.2.2)
 #- import_playbook: fs-hijack_assist-115.yml # DNS Enforce (1.1.5)
 #- import_playbook: fs-dot1x-4201.yml # 802.1X (4.2.0)
-# CEF (2.6.1)
+#- import_playbook: fs-cef-261.yml # CEF (2.6.1)
+# NetFlow (1.1.1)
+# External Classifier (2.2.2)
 
 # Update to 64 bit & Mitigate Spectre & Meltdown
 - import_playbook: fs-osup-1222014.yml # Operating System Update Pack version 1.2.2.2014
