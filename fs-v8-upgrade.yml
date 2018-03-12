@@ -1,0 +1,41 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    fpi_title: CounterACT Version 8 (8.0.8-1142)
+    fpi_name: CounterACT-8.0.0-1142.fsp
+    fpi_dir: 8
+    fpi_url: https://forescout.box.com/shared/static/ins87kweiezkl9mi9o5evjaxgi83hhyd.fsp
+
+  tasks:
+
+  - name: Install {{ fpi_title }} {{ fpi_name }}
+    ping:
+
+  - name: create /tmp/update
+    file:
+      path: /tmp/update
+      state: directory
+
+  - name: create /tmp/update/{{ fpi_dir }} for {{ fpi_name }}
+    file:
+      path: /tmp/update/{{ fpi_dir }}
+      state: directory
+
+  - name: Copy {{ fpi_name }} to /tmp/update/{{ fpi_dir }}
+    copy:
+      src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+      dest: "/tmp/update/{{ fpi_dir }}"
+
+#  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+#    unarchive:
+#        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+#        dest: /tmp/update/{{ fpi_dir }}/""
+#    notify:
+#      - install plugin
+
+#  handlers:
+#    - name: install plugin
+#      command: "fstool upgrade -f /tmp/update/{{ fpi_dir }}/{{ fpi_name }}"
+#      # fstool upgrade [-f] service_pack_file

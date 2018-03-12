@@ -42,4 +42,4 @@
 # Install demo license
 #- import_playbook: fs-demo-license.yml
 
-- import_playbook: fs-restart-service.yml # Restart the services after installation
+#- import_playbook: fs-restart-service.yml # Restart the services after installation
