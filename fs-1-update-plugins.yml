@@ -15,7 +15,7 @@
 #- import_playbook: fs-linux-110.yml # Linux (1.1.0)
 - import_playbook: fs-osx-2001.yml # OS X (2.0.0.1)
 - import_playbook: fs-nbtscan-304.yml # NBT Scanner (3.0.4)
-- import_playbook: fs-profiles-203.yml # Device Profile Library (2.0.3)
+- import_playbook: fs-profiles-204.yml # Device Profile Library (2.0.4)
 #- import_playbook: fs-syslog-320.yml # Syslog (3.2.0)
 #- import_playbook: fs-ipmi-114.yml # Hardware WatchDog (1.1.4)
 #- import_playbook: fs-support-112.yml # Technical Support (1.1.2)
@@ -40,7 +40,7 @@
 # External Classifier (2.2.2)
 
 # Update to 64 bit & Mitigate Spectre & Meltdown
-- import_playbook: fs-osup-1222014.yml # Operating System Update Pack version 1.2.2.2014
+#- import_playbook: fs-osup-1222014.yml # Operating System Update Pack version 1.2.2.2014
 
 # Install demo license
 - import_playbook: fs-demo-license.yml
