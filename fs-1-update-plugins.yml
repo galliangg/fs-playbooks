@@ -9,7 +9,7 @@
 #- import_playbook: fs-dnsclient-300.yml # DNS Client (3.0.0)
 #- import_playbook: fs-meta-214.yml # HPS Applications (2.1.4)
 - import_playbook: fs-va-1071.yml # HPS Inspection Engine (10.7.1)
-- import_playbook: fs-ms-18002.yml # Windows Vulnerability DB (18.0.2) was HPS Vulnerability DB
+- import_playbook: fs-ms-1803.yml # Windows Vulnerability DB (18.0.3) was HPS Vulnerability DB
 - import_playbook: fs-nic-125.yml # HPS NIC Vendor DB (1.2.5)
 #- import_playbook: fs-mac-701.yml # Macintosh/Linux Property Scanner (7.0.1)
 #- import_playbook: fs-linux-110.yml # Linux (1.1.0)
