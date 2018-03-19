@@ -21,11 +21,11 @@
     debug:
       msg: "{{ find_result.matched }}"
 
-  - name: List Path
+  - name: List Path 1
     debug:
       msg: "{{ find_result.files[4].path }}"
 
-  - name: List Path
+  - name: List Path 2
     debug:
       msg: "{{ find_result.files|map(attribute='path')|list }}"
 
