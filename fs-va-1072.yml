@@ -1,0 +1,35 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    fpi_title: HPS Inspection Engine (10.7.2)
+    fpi_name: ForeScout-va-10.7.2-107020007.fpi
+    fpi_dir: va
+    fpi_url: https://updates.forescout.com/support/files/plugins/hps/10.7.2/10.7.2-107020007/ForeScout-va-10.7.2-107020007.fpi
+
+  tasks:
+
+  - name: Install {{ fpi_title }} {{ fpi_name }}
+    ping:
+
+  - name: create /tmp/update
+    file:
+      path: /tmp/update
+      state: directory
+
+  - name: create /tmp/update/{{ fpi_dir }} for {{ fpi_name }}
+    file:
+      path: /tmp/update/{{ fpi_dir }}
+      state: directory
+
+  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+    unarchive:
+        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+        dest: /tmp/update/{{ fpi_dir }}
+    notify:
+      - install plugin
+
+  handlers:
+    - name: install plugin
+      command: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip

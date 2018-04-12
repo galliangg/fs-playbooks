@@ -1,0 +1,34 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    fpi_title: Switch (8.11.2)
+    fpi_name: ForeScout-sw-8.11.2-81102008.fpi
+    fpi_dir: sw
+    fpi_url: https://updates.forescout.com/support/files/plugins/sw/8.11.2/8.11.2-81102008/ForeScout-sw-8.11.2-81102008.fpi
+
+  tasks:
+  - name: Install {{ fpi_title }} {{ fpi_name }}
+    ping:
+
+  - name: create /tmp/update
+    file:
+      path: /tmp/update
+      state: directory
+
+  - name: create /tmp/update/{{ fpi_dir }} for {{ fpi_name }}
+    file:
+      path: /tmp/update/{{ fpi_dir }}
+      state: directory
+
+  - name: Copy {{ fpi_name }} and unzip in /tmp/update/{{ fpi_dir }}
+    unarchive:
+        src: "/Users/james/OneDrive - BlueFort Security Ltd/ForeScout/Software/{{ fpi_name }}"
+        dest: /tmp/update/{{ fpi_dir }}
+    notify:
+      - install plugin
+
+  handlers:
+    - name: install plugin
+      command: fstool plugin -i /tmp/update/{{ fpi_dir }}/data.zip
